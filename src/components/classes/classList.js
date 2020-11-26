@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ClassCard from "./classCard";
+import ClassCard from "./ClassCard";
 
-const classList = ({ classes }) => {
+const ClassList = ({ classes }) => {
   return (
     <div className="class-list">
       {classes &&
@@ -17,4 +17,4 @@ const classList = ({ classes }) => {
   );
 };
 
-export default classList;
+export default ClassList;

@@ -1,9 +1,8 @@
-import signedOutNav from "./signedOutNav";
 import { connect } from "react-redux";
 import { logOut } from "../store/actions/authActions";
 import { NavLink } from "react-router-dom";
 
-const signedInNav = (props) => {
+const SignedInNav = (props) => {
   const { auth, profile } = props;
   return (
     <ul className="navbar-nav ml-auto">
@@ -99,4 +98,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(signedInNav);
+export default connect(mapStateToProps, mapDispatchToProps)(SignedInNav);

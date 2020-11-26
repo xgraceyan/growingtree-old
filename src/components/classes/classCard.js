@@ -1,7 +1,6 @@
 import React from "react";
-import classList from "./classList";
 
-const classCard = ({ aclass }) => {
+const ClassCard = ({ aclass }) => {
   return (
     <div className="card">
       <div className="card-body">
@@ -14,4 +13,4 @@ const classCard = ({ aclass }) => {
   );
 };
 
-export default classCard;
+export default ClassCard;

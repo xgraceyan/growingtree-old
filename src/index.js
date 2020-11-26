@@ -10,7 +10,7 @@ import * as serviceWorker from "./serviceWorker";
 import "font-awesome/css/font-awesome.min.css";
 import { applyMiddleware, createStore, compose } from "redux";
 import rootReducer from "./store/reducers/rootReducer";
-import { Provider } from "react-redux";
+import { Provider, useSelector } from "react-redux";
 import thunk from "redux-thunk";
 import firebaseConfig from "./config/firebaseConfig";
 import firebase from "firebase/app";
@@ -20,7 +20,11 @@ import {
   reduxFirestore,
   getFirestore,
 } from "redux-firestore";
-import { ReactReduxFirebaseProvider, getFirebase } from "react-redux-firebase";
+import {
+  ReactReduxFirebaseProvider,
+  getFirebase,
+  isLoaded,
+} from "react-redux-firebase";
 
 import "firebase/firestore";
 
@@ -44,6 +48,12 @@ const rrfProps = {
   createFirestoreInstance,
 };
 
+function AuthIsLoaded({ children }) {
+  const auth = useSelector((state) => state.firebase.auth);
+  if (!isLoaded(auth)) return <div>Loading Screen...</div>;
+  return children;
+}
+
 ReactDOM.render(
   <Provider store={store}>
     <ReactReduxFirebaseProvider {...rrfProps}>
@@ -52,3 +62,5 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
+
+serviceWorker.unregister();

@@ -66,6 +66,9 @@ input.form-control:focus {
   color: #3f3f3f;
   transition: ease 0.2s;
 }
+.dashboard .container {
+  padding-left: 20px;
+}
 .dashboard-img {
   height: 250px;
   overflow: hidden;

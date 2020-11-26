@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import Sidebar from "../templates/sidebar";
+import Sidebar from "./Sidebar";
 import { isMobile } from "react-device-detect";
-import SignedInNav from "./signedInNav";
-import SignedOutNav from "./signedOutNav";
-import signedInNav from "./signedInNav";
+import SignedInNav from "./SignedInNav";
+import SignedOutNav from "./SignedOutNav";
+import signedInNav from "./SignedInNav";
 import { connect } from "react-redux";
 
-const navbar = (props) => {
+const Navbar = (props) => {
   const { auth, profile } = props;
   const navlinks = auth.uid ? <SignedInNav /> : <SignedOutNav />;
   return (
@@ -44,4 +44,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(navbar);
+export default connect(mapStateToProps)(Navbar);

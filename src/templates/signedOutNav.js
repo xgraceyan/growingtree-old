@@ -1,4 +1,4 @@
-const signedOutNav = () => {
+const SignedOutNav = () => {
   return (
     <ul className="navbar-nav ml-auto">
       <li className="nav-item active">
@@ -63,4 +63,4 @@ const signedOutNav = () => {
   );
 };
 
-export default signedOutNav;
+export default SignedOutNav;
