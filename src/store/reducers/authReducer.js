@@ -12,7 +12,19 @@ const authReducer = (state = initState, action) => {
       console.log("Login Failure..");
       return {
         ...state,
-        authError: "Login Failed",
+        authError: action.err.message,
+      };
+    case "LOGIN_GOOGLE_SUCCESS":
+      console.log("Google login success");
+      return {
+        ...state,
+        authError: null,
+      };
+    case "LOGIN_GOOGLE_ERROR":
+      console.log("google login failed");
+      return {
+        ...state,
+        authError: action.err.message,
       };
     case "LOGOUT_SUCCESS":
       console.log("Logout Success");
@@ -21,7 +33,7 @@ const authReducer = (state = initState, action) => {
       console.log("Logout Failure");
       return {
         ...state,
-        authError: "Logout failed",
+        authError: action.err.message,
       };
     case "SIGNUP_SUCCESS":
       console.log("signup success");

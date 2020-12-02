@@ -15,6 +15,44 @@ export const logIn = (creds) => {
   };
 };
 
+export const logInWithGoogle = () => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    const firebase = getFirebase();
+    var provider = new firebase.auth.GoogleAuthProvider();
+    var firestore = getFirestore();
+
+    firebase
+      .auth()
+      .signInWithPopup(provider)
+      .then(function (creds) {
+        var token = creds.credential.accessToken;
+        var user = creds.user;
+        var fullName = creds.user.displayName.split(" ");
+        console.log(creds);
+
+        const usersRef = firestore.collection("users").doc(creds.user.uid);
+        usersRef.get().then((docSnapshot) => {
+          if (docSnapshot.exists) {
+            dispatch({ type: "LOGIN_GOOGLE_SUCCESS" });
+          } else {
+            firestore.collection("users").doc(creds.user.uid).set({
+              firstName: fullName[0],
+              lastName: fullName[1],
+              userName: creds.user.email,
+            });
+          }
+        });
+      })
+      .catch(function (err) {
+        var errCode = err.code;
+        var errMessage = err.message;
+        var email = err.email;
+        var credential = err.credential;
+        dispatch({ type: "LOGIN_GOOGLE_ERROR", err });
+      });
+  };
+};
+
 export const logOut = () => {
   return (dispatch, getState, { getFirebase }) => {
     const firebase = getFirebase();

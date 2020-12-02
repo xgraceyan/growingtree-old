@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { logIn } from "../store/actions/authActions";
+import { logIn, logInWithGoogle } from "../store/actions/authActions";
 import { Redirect } from "react-router-dom";
 
 class LogIn extends Component {
@@ -17,13 +17,17 @@ class LogIn extends Component {
     e.preventDefault();
     this.props.logIn(this.state);
   };
+  handleGoogleLogin = (e) => {
+    e.preventDefault();
+    this.props.logInWithGoogle();
+  };
   render() {
     document.body.style.background = "url('https://i.imgur.com/KsZlumw.png')";
     document.body.style.backgroundSize = "100%";
     const { authError, auth } = this.props;
     const authAlert = (
-      <div className="alert alert-danger">
-        <p>{authError}</p>
+      <div className="alert alert-danger" role="alert">
+        {authError}
       </div>
     );
     if (auth.uid) {
@@ -33,9 +37,9 @@ class LogIn extends Component {
     return (
       <div className="signup-form">
         <div className="container">
-          {authError ? authAlert : null}
-          <form onSubmit={this.handleSubmit}>
+          <form onSubmit={this.handleSubmit} class="signup">
             <h1 className="text-center">Log In</h1>
+            {authError ? authAlert : null}
             <div className="form-group">
               <input
                 type="email"
@@ -65,6 +69,15 @@ class LogIn extends Component {
                 className="btn btn-primary form-button text-center"
               />
             </div>
+            <hr />
+            <div className="d-flex justify-content-center input-group">
+              <button
+                className="btn btn-danger form-button text-center google-button"
+                onClick={this.handleGoogleLogin}
+              >
+                <i class="fab fa-google"></i>&nbsp; &nbsp; Login with Google
+              </button>
+            </div>
           </form>
         </div>
       </div>
@@ -82,6 +95,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     logIn: (creds) => dispatch(logIn(creds)),
+    logInWithGoogle: () => dispatch(logInWithGoogle()),
   };
 };
 

@@ -2,7 +2,7 @@ import React from "react";
 
 const ClassCard = ({ aclass }) => {
   return (
-    <div className="card">
+    <div className="general-card card">
       <div className="card-body">
         <h6 className="card-title">{aclass.name}</h6>
         <p className="card-subtitle text-muted">

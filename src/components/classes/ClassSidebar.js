@@ -1,14 +1,20 @@
 import React from "react";
+import ClassPage from "./ClassPage";
 
-const Sidebar = () => {
+const ClassSidebar = ({ name }) => {
   return (
     <div className="sidebar">
       <ul>
         <li>
-          <a href="">Courses</a>
+          <a href="">
+            <strong>{name}</strong>
+          </a>
         </li>
         <li>
           <a href="">Assignments</a>
+        </li>
+        <li>
+          <a href="">Posts</a>
         </li>
         <li>
           <a href="">Grades</a>
@@ -17,11 +23,11 @@ const Sidebar = () => {
           <a href="">Calendar</a>
         </li>
         <li>
-          <a href="">Timeline</a>
+          <a href="">People</a>
         </li>
       </ul>
     </div>
   );
 };
 
-export default Sidebar;
+export default ClassSidebar;

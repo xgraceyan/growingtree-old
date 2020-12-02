@@ -5,6 +5,7 @@ import SignedInNav from "./SignedInNav";
 import SignedOutNav from "./SignedOutNav";
 import signedInNav from "./SignedInNav";
 import { connect } from "react-redux";
+import { NavLink } from "react-router-dom";
 
 const Navbar = (props) => {
   const { auth, profile } = props;
@@ -12,9 +13,9 @@ const Navbar = (props) => {
   return (
     <div className="nav">
       <nav className="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-        <a className="navbar-brand" href="#">
-          <strong>App</strong>
-        </a>
+        <NavLink to="/" className="nav-link navbar-brand">
+          <strong>Growing Tree</strong>
+        </NavLink>
         <button
           className="navbar-toggler"
           type="button"
@@ -37,7 +38,6 @@ const Navbar = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     auth: state.firebase.auth,
     profile: state.firebase.profile,

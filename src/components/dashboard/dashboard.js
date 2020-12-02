@@ -39,14 +39,14 @@ class Dashboard extends Component {
         document.body.style.paddingLeft = "0px";
       }
       return (
-        <div className="D" id="dashboard">
+        <div className="dashboard" id="dashboard">
           {sidenav}
           <div className="dashboard-img my-auto" id="dashboard-img">
             <div className="dashboard-text container">
               <h1 className="username-text">
                 <strong>
                   {profile.firstName} {profile.lastName}{" "}
-                  <h5>(@{profile.userName})</h5>
+                  <h5>{profile.userName}</h5>
                 </strong>
               </h1>
             </div>
@@ -78,7 +78,6 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     classes: state.firestore.ordered.classes,
     enrollment: state.firestore.ordered.enrollment,
@@ -94,20 +93,28 @@ export default compose(
       const enrollmentCollection = props.enrollment.map((enrollment) => {
         return enrollment.classid;
       });
-      return [
-        {
-          collection: "enrollment",
-          where: ["userid", "==", String(props.auth.uid)],
-        },
-        {
-          collection: "classes",
-          where: [
-            firebase.firestore.FieldPath.documentId(),
-            "in",
-            enrollmentCollection,
-          ],
-        },
-      ];
+      if (enrollmentCollection && enrollmentCollection.length) {
+        return [
+          {
+            collection: "enrollment",
+            where: ["userid", "==", String(props.auth.uid)],
+          },
+          {
+            collection: "classes",
+            where: [
+              firebase.firestore.FieldPath.documentId(),
+              "in",
+              enrollmentCollection,
+            ],
+          },
+        ];
+      } else {
+        return [
+          {
+            collection: "enrollment",
+          },
+        ];
+      }
     } else {
       return [
         {

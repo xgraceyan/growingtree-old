@@ -87,30 +87,20 @@ input.form-control:focus {
 }
 .username-text {
   padding: 70px 0;
-  /* margin-left: 80px; */
   color: white;
-}
-
-.card {
-  margin-top: 10px;
-  margin-bottom: 10px;
 }
 .classlist h2 {
   margin-top: 30px;
   margin-bottom: 20px;
 }
 .signup-form .container {
-  /* padding-top: 100px;
-  padding-left: 300px;
-  padding-right: 300px;
-  margin-bottom: 100px; */
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
 
   margin: auto;
-  padding: 150px 300px;
+  padding: 110px 300px;
 }
 @media only screen and (max-width: 990px) {
   .signup-form .container {
@@ -132,7 +122,7 @@ input.form-control:focus {
   box-sizing: border-box;
 }
 
-.signup-form form * {
+.signup-form form.signup * {
   box-sizing: border-box;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -143,7 +133,7 @@ input.form-control:focus {
   padding: 10px 0 !important;
 }
 
-.signup-form form {
+.signup-form form.signup {
   padding: 50px;
   background-color: white;
   box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
@@ -151,4 +141,16 @@ input.form-control:focus {
 }
 .signup-form {
   background-size: 100%;
+}
+
+.general-card.card {
+  border: hidden;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.card-list {
+  padding-right: 75px;
+}
+.google-button img {
+  transform: scale(0.1);
 }
