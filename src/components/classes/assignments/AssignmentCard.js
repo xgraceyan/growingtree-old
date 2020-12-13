@@ -1,15 +1,13 @@
 import React from "react";
 import moment from "moment";
 
-const AssignmentCard = ({ assignment }) => {
+const AssignmentCard = ({ assignment, aclass }) => {
   return (
-    <div className="general-card card">
-      <div className="card-body">
-        <h6 className="card-title">{assignment.title}</h6>
-        <p className="card-subtitle text-muted">
-          Due {moment(assignment.dueAt.toDate()).calendar()}
-        </p>
-      </div>
+    <div className="assignment-card">
+      <strong style={{ color: "#" + aclass.color }}>{assignment.title}</strong>
+      <p className="text-muted">
+        Due {moment(assignment.dueAt.toDate()).calendar()}
+      </p>
     </div>
   );
 };

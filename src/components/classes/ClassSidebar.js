@@ -6,9 +6,7 @@ const ClassSidebar = ({ name }) => {
     <div className="sidebar">
       <ul>
         <li>
-          <a href="">
-            <strong>{name}</strong>
-          </a>
+          <a href="">{name}</a>
         </li>
         <li>
           <a href="">Assignments</a>

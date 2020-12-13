@@ -8,7 +8,7 @@ const ClassList = ({ classes }) => {
       <div className="card-body">
         <h6 className="card-title">No Classes Found</h6>
         <p className="card-subtitle text-muted">
-          Click the "Explore" tab to view classes!
+          Click the "Explore" tab to view classes
         </p>
       </div>
     </div>
@@ -19,7 +19,7 @@ const ClassList = ({ classes }) => {
         classes.map((aclass) => {
           return (
             <Link
-              to={"/class/" + aclass.id}
+              to={"/class/" + aclass.id + "/overview"}
               key={aclass.id}
               className="card-link"
             >

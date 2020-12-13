@@ -76,6 +76,16 @@ input.form-control:focus {
   background-size: 100%;
   padding-top: 50px;
 }
+.class-dashboard-img {
+  height: 250px;
+  overflow: hidden;
+  background-size: 100%;
+  padding-top: 50px;
+  background-image: url("./img/leaf-border-shadow.png");
+  background-position: bottom right;
+  background-size: 50%;
+  background-repeat: no-repeat;
+}
 .navbar-light .navbar-toggler {
   margin-right: 30px;
   border-color: rgba(0, 0, 0, 0);
@@ -143,14 +153,12 @@ input.form-control:focus {
   background-size: 100%;
 }
 
-.general-card.card {
-  border: hidden;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
-}
-
-.card-list {
+.classlist {
   padding-right: 75px;
 }
 .google-button img {
   transform: scale(0.1);
+}
+.jumbotron {
+  background-color: rgb(255, 255, 255) !important;
 }

@@ -6,6 +6,7 @@ import Sidebar from "./templates/Sidebar";
 import SignUp from "./auth/SignUp";
 import LogIn from "./auth/LogIn";
 import ClassPage from "./components/classes/ClassPage";
+import AssignmentPage from "./components/classes/assignments/AssignmentPage";
 
 class App extends Component {
   render() {
@@ -17,7 +18,12 @@ class App extends Component {
             <Route exact path="/" component={Dashboard} />
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/login" component={LogIn} />
-            <Route path="/class/:id" component={ClassPage} />
+            <Route exact path="/class/:id/overview" component={ClassPage} />
+            <Route
+              exact
+              path="/class/:classid/assignment/:assignmentid"
+              component={AssignmentPage}
+            />
           </Switch>
         </div>
       </BrowserRouter>
