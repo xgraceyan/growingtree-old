@@ -70,20 +70,11 @@ class AssignmentPage extends Component {
               <div className="col-md-8">
                 <div className="assignment-jumbotron">
                   <div class="jumbotron">
-                    <h1 class="display-4">
-                      {assignment.title}{" "}
-                      <span
-                        style={{ color: "blue", cursor: "default" }}
-                        data-toggle="tooltip"
-                        data-placement="top"
-                        title="Tooltip on top"
-                      >
-                        ‎‎●
-                      </span>
-                    </h1>
+                    <h1 class="display-4">{assignment.title} </h1>
                     <p>
-                      Due {moment(assignment.dueAt.toDate()).calendar()} |
+                      Due {moment(assignment.dueAt.toDate()).calendar()} &nbsp;
                       Assigned {moment(assignment.startAt.toDate()).calendar()}
+                      &nbsp; &nbsp; &nbsp; &nbsp; Comments
                     </p>
                     <hr class="my-4" />
                     <p className="lead">{assignment.longDescription}</p>
@@ -92,7 +83,7 @@ class AssignmentPage extends Component {
               </div>
               {/* Submit work start */}
               <div className="col-6 col-md-4">
-                <SubmitCard />
+                <SubmitCard cardProps={this.props} />
               </div>
             </div>
           </div>
@@ -139,6 +130,7 @@ export default compose(
           collection: "assignmentEvents",
           where: ["classid", "==", props.match.params.classid],
           where: ["userid", "==", props.auth.uid],
+          where: ["assignmentid", "==", props.match.params.assignmentid],
           orderBy: ["date", "desc"],
         },
       ];
