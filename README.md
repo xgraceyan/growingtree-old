@@ -2,6 +2,8 @@
 
 A school in the cloud using ReactJS and Firebase Cloud Firestore.
 
+!! This code is no longer being worked on. I am remastering and creating a new version of Growing Tree.
+
 ## Setup
 
 ### ReactJS
