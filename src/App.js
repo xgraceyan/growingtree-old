@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Dashboard from "./components/dashboard/Dashboard";
-import Navbar from "./templates/Navbar";
-import Sidebar from "./templates/Sidebar";
+import Dashboard from "./components/dashboard/dashboard";
+import Navbar from "./templates/navbar";
+import Sidebar from "./templates/sidebar";
 import SignUp from "./auth/SignUp";
 import LogIn from "./auth/LogIn";
 import ClassPage from "./components/classes/ClassPage";

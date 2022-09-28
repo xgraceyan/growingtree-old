@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import ClassList from "../classes/ClassList";
+import ClassList from "../classes/classList";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
-import Sidebar from "../../templates/Sidebar";
+import Sidebar from "../../templates/sidebar";
 import { Redirect } from "react-router-dom";
 import firebase from "firebase/app";
 import "firebase/firestore";

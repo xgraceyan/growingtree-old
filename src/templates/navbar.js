@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import Sidebar from "./Sidebar";
+import Sidebar from "./sidebar";
 import { isMobile } from "react-device-detect";
-import SignedInNav from "./SignedInNav";
-import SignedOutNav from "./SignedOutNav";
-import signedInNav from "./SignedInNav";
+import SignedInNav from "./signedInNav";
+import SignedOutNav from "./signedOutNav";
+import signedInNav from "./signedInNav";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 

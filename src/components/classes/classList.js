@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ClassCard from "./ClassCard";
+import ClassCard from "./classCard";
 
 const ClassList = ({ classes }) => {
   const noClasses = classes ? null : (
